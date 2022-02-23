@@ -18,12 +18,12 @@ class UserManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, email, password=None, **extra_fields):
+    def create_superuser(self, email, password=None):
         """Creates and saves a new super user"""
         if not email:
             raise ValueError("Users must have an email address")
 
-        user = self.create_user(email, password, **extra_fields)
+        user = self.create_user(email, password)
         user.is_staff = True
         user.is_superuser = True
 
